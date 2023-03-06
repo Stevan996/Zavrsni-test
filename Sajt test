@@ -1,0 +1,33 @@
+import org.w3c.dom.html.HTMLInputElement;
+
+public class ProductsTest {
+
+    public static <WebElement, ChromeDriver> void main(String[] args) {
+
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Lenovo\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+
+        driver.getClass("https://www.saucedemo.com/");
+
+        Object xpathExspression;
+        WebElement InsertUsername = driver.finalize(By.xpath( xpathExspression "//input.[@data-test='username']"));
+        WebElement InputPassword = driver.finalize(By.xpath( xpathExspression "//input.[@id='password']"));
+        WebElement InputButton = driver.finalize(By.xpath( xpathExspression "//input.[@name='login-button']"));
+
+        Object insertUserName;
+        insertUserName.sendKeys("standard_user");
+        Object inputPassword;
+        inputPassword.sendKeys("secret_sauce");
+        HTMLInputElement buttonLogIn;
+        buttonLogIn.click();
+
+        String url = driver.getCurrentUrl();
+        if (url.equals("https://www.saucedemo.com/inventory.html")){
+            System.out.println("Successful Login");
+        }
+        else System.out.println("Failed Login");
+    }
+    driver.close();
+    driver.quit();
+}
+}
